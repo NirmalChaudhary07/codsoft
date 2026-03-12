@@ -1,0 +1,439 @@
+/* ============================================================
+   CALCULATOR — STYLESHEET
+   Sections:
+   01. Variables & Reset
+   02. Body & Background
+   03. Ambient Orbs
+   04. Wrapper & Calculator Shell
+   05. Display
+   06. Button Grid (CSS Grid)
+   07. Button Base Styles
+   08. Button Variants (digit / utility / operator / equals)
+   09. Active & Pressed States
+   10. Animations
+   11. Keyboard hint
+   12. Responsive
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   01. Variables & Reset
+   ---------------------------------------------------------- */
+:root {
+  /* Palette */
+  --bg:           #0e0e0f;
+  --calc-bg:      rgba(22, 21, 20, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.07);
+  --glass-hi:     rgba(255, 255, 255, 0.04);
+
+  --digit-bg:     rgba(255, 255, 255, 0.06);
+  --digit-hover:  rgba(255, 255, 255, 0.11);
+  --digit-active: rgba(255, 255, 255, 0.16);
+
+  --utility-bg:   rgba(255, 255, 255, 0.10);
+  --utility-hover:rgba(255, 255, 255, 0.17);
+
+  --op-bg:        #c8770a;
+  --op-hover:     #e08a10;
+  --op-active-bg: #f5f5f0;
+  --op-active-fg: #c8770a;
+
+  --eq-bg:        #c8770a;
+  --eq-hover:     #e08a10;
+
+  --display-bg:   rgba(10, 10, 10, 0.6);
+  --text-primary: #f5f0e8;
+  --text-muted:   rgba(245, 240, 232, 0.38);
+  --text-op:      #ffffff;
+
+  /* Typography */
+  --font-ui:   'Outfit', sans-serif;
+  --font-num:  'Space Mono', monospace;
+
+  /* Geometry */
+  --calc-w:    380px;
+  --radius-calc: 32px;
+  --radius-btn:  20px;
+  --gap:         12px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body { height: 100%; }
+
+/* ----------------------------------------------------------
+   02. Body & Background
+   ---------------------------------------------------------- */
+body {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: var(--font-ui);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ----------------------------------------------------------
+   03. Ambient Orbs
+   ---------------------------------------------------------- */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+  animation: drift 10s ease-in-out infinite alternate;
+}
+
+.orb-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(200, 119, 10, 0.18) 0%, transparent 70%);
+  top: -80px;
+  right: -60px;
+  animation-duration: 12s;
+}
+
+.orb-2 {
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, rgba(100, 80, 200, 0.12) 0%, transparent 70%);
+  bottom: -60px;
+  left: -80px;
+  animation-duration: 9s;
+  animation-direction: alternate-reverse;
+}
+
+/* ----------------------------------------------------------
+   04. Wrapper & Calculator Shell
+   ---------------------------------------------------------- */
+.wrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.calculator {
+  width: var(--calc-w);
+  background: var(--calc-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-calc);
+  padding: 24px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.06) inset,        /* top highlight */
+    0 40px 80px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(0,0,0,0.4);
+  animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ----------------------------------------------------------
+   05. Display
+   ---------------------------------------------------------- */
+.display {
+  background: var(--display-bg);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 20px 24px 18px;
+  margin-bottom: var(--gap);
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle inner glow */
+.display::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,119,10,0.4), transparent);
+}
+
+/* Expression line (previous operand + operator) */
+.display-expression {
+  font-family: var(--font-num);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  min-height: 1.2em;
+  transition: all 0.2s ease;
+  word-break: break-all;
+  text-align: right;
+  max-width: 100%;
+}
+
+/* Main result / current input */
+.display-result {
+  font-family: var(--font-num);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  transition: font-size 0.15s ease, color 0.2s;
+  word-break: break-all;
+  text-align: right;
+  max-width: 100%;
+}
+
+/* Auto-shrink for long numbers */
+.display-result.shrink-md { font-size: 2.2rem; }
+.display-result.shrink-sm { font-size: 1.65rem; }
+.display-result.shrink-xs { font-size: 1.25rem; }
+
+/* Blinking cursor while typing */
+.display-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 2.4rem;
+  background: var(--op-bg);
+  border-radius: 2px;
+  margin-left: 3px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+  position: absolute;
+  bottom: 16px;
+  right: 22px;
+  opacity: 0;
+}
+
+.display-cursor.active { opacity: 1; }
+
+/* ----------------------------------------------------------
+   06. Button Grid (CSS Grid)
+   ---------------------------------------------------------- */
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: var(--gap);
+}
+
+/*
+  The "0" button spans 2 columns:
+  grid-column: 1 / span 2
+  The "." button sits at column 3
+  The "=" button sits at column 4
+*/
+.btn-zero  { grid-column: 1 / span 2; }
+
+/* ----------------------------------------------------------
+   07. Button Base Styles
+   ---------------------------------------------------------- */
+.btn {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Size */
+  height: 72px;
+  border-radius: var(--radius-btn);
+  border: none;
+  cursor: pointer;
+
+  /* Typography */
+  font-family: var(--font-ui);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--text-primary);
+
+  /* Interaction */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transition:
+    background 0.15s ease,
+    transform  0.1s ease,
+    box-shadow 0.15s ease;
+
+  /* Subtle top-edge highlight (makes buttons look slightly raised) */
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ripple pseudo-element */
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255,255,255,0.12);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.btn:active::after {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0s, transform 0s;
+}
+
+/* ----------------------------------------------------------
+   08. Button Variants
+   ---------------------------------------------------------- */
+
+/* — Digit buttons — */
+.btn-digit {
+  background: var(--digit-bg);
+  font-family: var(--font-num);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.btn-digit:hover  { background: var(--digit-hover); }
+.btn-digit:active { background: var(--digit-active); transform: scale(0.95); }
+
+/* — Utility buttons (AC, +/−, %) — */
+.btn-utility {
+  background: var(--utility-bg);
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.btn-utility:hover  { background: var(--utility-hover); }
+.btn-utility:active { transform: scale(0.95); }
+
+/* — Operator buttons (÷ × − +) — */
+.btn-operator {
+  background: var(--op-bg);
+  color: var(--text-op);
+  font-size: 1.6rem;
+  font-weight: 400;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.18) inset,
+    0 4px 16px rgba(200,119,10,0.3);
+}
+
+.btn-operator:hover {
+  background: var(--op-hover);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.18) inset,
+    0 6px 24px rgba(200,119,10,0.45);
+}
+
+.btn-operator:active { transform: scale(0.95); }
+
+/* Highlighted state when that operator is currently selected */
+.btn-operator.is-active {
+  background: var(--op-active-bg);
+  color: var(--op-active-fg);
+}
+
+/* — Equals button — */
+.btn-equals {
+  background: var(--eq-bg);
+  color: var(--text-op);
+  font-size: 1.5rem;
+  font-weight: 600;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.18) inset,
+    0 4px 20px rgba(200,119,10,0.35);
+  transition:
+    background 0.15s ease,
+    transform  0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.btn-equals:hover {
+  background: var(--eq-hover);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.18) inset,
+    0 8px 28px rgba(200,119,10,0.5);
+  transform: translateY(-1px);
+}
+
+.btn-equals:active { transform: scale(0.95) translateY(0); }
+
+/* ----------------------------------------------------------
+   09. Flash on calculation result
+   ---------------------------------------------------------- */
+.display-result.flash {
+  animation: flash 0.3s ease;
+}
+
+/* ----------------------------------------------------------
+   10. Animations
+   ---------------------------------------------------------- */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.88) translateY(20px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes drift {
+  from { transform: translate(0,    0   ); }
+  to   { transform: translate(30px, 20px); }
+}
+
+@keyframes flash {
+  0%   { color: var(--text-primary); }
+  40%  { color: #f0b64a; }
+  100% { color: var(--text-primary); }
+}
+
+@keyframes errorShake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+.calculator.error {
+  animation: errorShake 0.4s ease;
+}
+
+/* ----------------------------------------------------------
+   11. Keyboard hint
+   ---------------------------------------------------------- */
+.hint {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.18);
+}
+
+/* ----------------------------------------------------------
+   12. Responsive
+   ---------------------------------------------------------- */
+@media (max-width: 440px) {
+  :root {
+    --calc-w: calc(100vw - 32px);
+    --radius-calc: 24px;
+    --radius-btn:  16px;
+    --gap: 9px;
+  }
+
+  .btn { height: 62px; font-size: 1.2rem; }
+  .display-result { font-size: 2.5rem; }
+}
+
+@media (max-height: 700px) {
+  .btn { height: 60px; }
+  .display { min-height: 90px; }
+  .display-result { font-size: 2.4rem; }
+}
