@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Luminary — Build What Matters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Noise overlay -->
+  <div class="noise"></div>
+
+  <!-- =====================================================
+       HEADER / NAV
+  ===================================================== -->
+  <header id="header">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark">◈</span>
+        <span class="logo-text">Luminary</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#testimonials">Stories</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#" class="btn-ghost">Sign in</a>
+        <a href="#" class="btn-primary">Get started free</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================
+       HERO SECTION
+  ===================================================== -->
+  <section id="hero">
+
+    <!-- Floating badge -->
+    <div class="hero-badge anim-fade" style="--d:0s">
+      <span class="badge-dot"></span>
+      Now in public beta · 12,000+ teams
+    </div>
+
+    <h1 class="hero-title anim-fade" style="--d:.1s">
+      Build products<br>
+      <em>the world</em><br>
+      remembers.
+    </h1>
+
+    <p class="hero-sub anim-fade" style="--d:.2s">
+      Luminary gives your team a unified workspace to plan, design,
+      and ship — faster than ever before, with clarity at every step.
+    </p>
+
+    <div class="hero-actions anim-fade" style="--d:.3s">
+      <a href="#" class="btn-primary btn-lg">Start for free</a>
+      <a href="#how" class="btn-outline btn-lg">
+        <span class="play-icon">▶</span> Watch demo
+      </a>
+    </div>
+
+    <!-- Hero visual / mockup area -->
+    <div class="hero-visual anim-fade" style="--d:.4s">
+      <div class="mockup-window">
+        <div class="mockup-bar">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="mockup-body">
+          <div class="mockup-sidebar">
+            <div class="ms-item active"></div>
+            <div class="ms-item"></div>
+            <div class="ms-item"></div>
+            <div class="ms-item"></div>
+            <div class="ms-item"></div>
+          </div>
+          <div class="mockup-content">
+            <div class="mc-header"></div>
+            <div class="mc-cards">
+              <div class="mc-card accent"></div>
+              <div class="mc-card"></div>
+              <div class="mc-card"></div>
+            </div>
+            <div class="mc-chart">
+              <div class="bar" style="--h:60%"></div>
+              <div class="bar" style="--h:80%"></div>
+              <div class="bar" style="--h:45%"></div>
+              <div class="bar" style="--h:90%"></div>
+              <div class="bar" style="--h:70%"></div>
+              <div class="bar" style="--h:55%"></div>
+              <div class="bar" style="--h:85%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Floating stats -->
+      <div class="float-card float-card-1">
+        <div class="fc-label">Velocity</div>
+        <div class="fc-value">↑ 3.4×</div>
+      </div>
+      <div class="float-card float-card-2">
+        <div class="fc-label">Shipped this week</div>
+        <div class="fc-value">24 tasks</div>
+      </div>
+    </div>
+
+    <!-- Logos strip -->
+    <div class="logos-strip anim-fade" style="--d:.5s">
+      <p class="logos-label">Trusted by teams at</p>
+      <div class="logos-row">
+        <span class="logo-item">Stripe</span>
+        <span class="logo-item">Linear</span>
+        <span class="logo-item">Vercel</span>
+        <span class="logo-item">Figma</span>
+        <span class="logo-item">Notion</span>
+        <span class="logo-item">Loom</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       FEATURES SECTION
+  ===================================================== -->
+  <section id="features">
+    <div class="section-header reveal">
+      <p class="eyebrow">Why Luminary</p>
+      <h2 class="section-title">Everything your<br><em>team needs</em></h2>
+      <p class="section-sub">
+        One platform. Zero context-switching. Pure momentum.
+      </p>
+    </div>
+
+    <div class="features-grid">
+
+      <div class="feature-card large reveal">
+        <div class="fc-icon">⚡</div>
+        <h3>Blazing-fast workflows</h3>
+        <p>Keyboard-first design means your team moves at the speed of thought. No clicks wasted.</p>
+        <div class="feature-visual fv-lines">
+          <div class="fv-line" style="--w:80%"></div>
+          <div class="fv-line" style="--w:60%"></div>
+          <div class="fv-line" style="--w:90%"></div>
+          <div class="fv-line accent" style="--w:55%"></div>
+          <div class="fv-line" style="--w:70%"></div>
+        </div>
+      </div>
+
+      <div class="feature-card reveal" style="--reveal-delay:.1s">
+        <div class="fc-icon">🧠</div>
+        <h3>AI-powered planning</h3>
+        <p>Luminary's AI surfaces blockers before they happen and keeps your roadmap honest.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--reveal-delay:.15s">
+        <div class="fc-icon">🔗</div>
+        <h3>Deep integrations</h3>
+        <p>GitHub, Figma, Slack, Linear — everything synced, always. No manual updates.</p>
+      </div>
+
+      <div class="feature-card reveal" style="--reveal-delay:.2s">
+        <div class="fc-icon">📊</div>
+        <h3>Live analytics</h3>
+        <p>Real-time velocity charts and sprint health scores so you're never flying blind.</p>
+      </div>
+
+      <div class="feature-card large reveal" style="--reveal-delay:.25s">
+        <div class="fc-icon">🛡️</div>
+        <h3>Enterprise-grade security</h3>
+        <p>SOC 2 Type II, SSO, audit logs, and role-based permissions out of the box.</p>
+        <div class="feature-visual fv-shield">
+          <div class="shield-ring r1"></div>
+          <div class="shield-ring r2"></div>
+          <div class="shield-ring r3"></div>
+          <div class="shield-core">✓</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       HOW IT WORKS
+  ===================================================== -->
+  <section id="how">
+    <div class="section-header reveal">
+      <p class="eyebrow">Process</p>
+      <h2 class="section-title">Up and running<br><em>in minutes</em></h2>
+    </div>
+
+    <div class="steps-row">
+
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Create your workspace</h3>
+          <p>Sign up, invite your team, and connect your tools. Luminary syncs everything automatically.</p>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="step reveal" style="--reveal-delay:.1s">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>Set your roadmap</h3>
+          <p>Drop your goals in, let AI break them into milestones, and assign ownership in seconds.</p>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+
+      <div class="step reveal" style="--reveal-delay:.2s">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>Ship with confidence</h3>
+          <p>Track live progress, catch drift early, and celebrate every release — big or small.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       STATS BAND
+  ===================================================== -->
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-num">3.4×</div>
+        <div class="stat-label">Faster shipping</div>
+      </div>
+      <div class="stat-item reveal" style="--reveal-delay:.08s">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Customer satisfaction</div>
+      </div>
+      <div class="stat-item reveal" style="--reveal-delay:.16s">
+        <div class="stat-num">12k+</div>
+        <div class="stat-label">Teams onboarded</div>
+      </div>
+      <div class="stat-item reveal" style="--reveal-delay:.24s">
+        <div class="stat-num">99.9%</div>
+        <div class="stat-label">Uptime SLA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       TESTIMONIALS
+  ===================================================== -->
+  <section id="testimonials">
+    <div class="section-header reveal">
+      <p class="eyebrow">Stories</p>
+      <h2 class="section-title">Teams that<br><em>love it</em></h2>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testi-card large reveal">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Luminary is the first tool that actually made our sprints feel less like firefighting and more like building. We shipped our biggest release in Q1 with half the stress.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #a78bfa;">S</div>
+          <div>
+            <div class="testi-name">Sofia Andersson</div>
+            <div class="testi-role">Head of Product · Vanta</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="--reveal-delay:.1s">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Our engineering velocity went up 40% in the first month. The AI planning is genuinely useful — not just a gimmick.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #34d399;">J</div>
+          <div>
+            <div class="testi-name">James Okoro</div>
+            <div class="testi-role">CTO · Ramp</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal" style="--reveal-delay:.2s">
+        <div class="testi-quote">"</div>
+        <p class="testi-text">Finally, a tool designers and engineers both actually open. Figma sync changed everything for us.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: #fb923c;">M</div>
+          <div>
+            <div class="testi-name">Maya Chen</div>
+            <div class="testi-role">Design Lead · Arc</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PRICING
+  ===================================================== -->
+  <section id="pricing">
+    <div class="section-header reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Simple,<br><em>transparent</em></h2>
+      <p class="section-sub">No hidden fees. Cancel anytime.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <div class="price-card reveal">
+        <div class="price-plan">Starter</div>
+        <div class="price-amount"><span class="price-currency">$</span>0</div>
+        <div class="price-period">Free forever</div>
+        <ul class="price-features">
+          <li>Up to 5 team members</li>
+          <li>3 active projects</li>
+          <li>Basic analytics</li>
+          <li>Community support</li>
+        </ul>
+        <a href="#" class="btn-ghost btn-block">Get started</a>
+      </div>
+
+      <div class="price-card featured reveal" style="--reveal-delay:.1s">
+        <div class="price-badge">Most popular</div>
+        <div class="price-plan">Pro</div>
+        <div class="price-amount"><span class="price-currency">$</span>24<span class="price-mo">/mo</span></div>
+        <div class="price-period">per seat · billed annually</div>
+        <ul class="price-features">
+          <li>Unlimited members</li>
+          <li>Unlimited projects</li>
+          <li>AI planning assistant</li>
+          <li>Advanced analytics</li>
+          <li>Priority support</li>
+          <li>All integrations</li>
+        </ul>
+        <a href="#" class="btn-primary btn-block">Start free trial</a>
+      </div>
+
+      <div class="price-card reveal" style="--reveal-delay:.2s">
+        <div class="price-plan">Enterprise</div>
+        <div class="price-amount">Custom</div>
+        <div class="price-period">Talk to us</div>
+        <ul class="price-features">
+          <li>Everything in Pro</li>
+          <li>SSO &amp; SAML</li>
+          <li>Audit logs</li>
+          <li>Dedicated CSM</li>
+          <li>SLA guarantee</li>
+        </ul>
+        <a href="#" class="btn-ghost btn-block">Contact sales</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CTA BAND
+  ===================================================== -->
+  <section id="cta">
+    <div class="cta-inner reveal">
+      <p class="eyebrow">Ready?</p>
+      <h2 class="cta-title">Start building<br><em>today.</em></h2>
+      <p class="cta-sub">Join 12,000+ teams already shipping faster with Luminary.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-primary btn-lg">Get started — it's free</a>
+        <a href="#" class="btn-ghost-light btn-lg">Talk to sales →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-mark">◈</span>
+          <span class="logo-text">Luminary</span>
+        </a>
+        <p class="footer-tagline">Build what the world remembers.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="GitHub">GH</a>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="#">Features</a>
+          <a href="#">Integrations</a>
+          <a href="#">Changelog</a>
+          <a href="#">Roadmap</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Blog</a>
+          <a href="#">Careers</a>
+          <a href="#">Press</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Docs</a>
+          <a href="#">API</a>
+          <a href="#">Status</a>
+          <a href="#">Support</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Security</a>
+          <a href="#">Cookies</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Luminary Inc. All rights reserved.</p>
+      <p class="footer-made">Made with intent. Built to last.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
