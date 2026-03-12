@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Alex Rivera — Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       CUSTOM CURSOR
+  ====================================================== -->
+  <div class="cursor"      id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ======================================================
+       NAVIGATION
+  ====================================================== -->
+  <nav>
+    <a href="#hero" class="nav-logo">Portfolio</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  
+  <section id="hero">
+    <div class="hero-left">
+      <p class="hero-tag">Full-Stack Developer </p>
+      <h1 class="hero-name">Nirmal<br><em></em></h1>
+      <p class="hero-tagline">
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-wrap">
+        
+        <div class="hero-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-number">01</div>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       SKILLS
+  ====================================================== -->
+  <section id="skills">
+    <p  class="section-label reveal">Expertise</p>
+    <h2 class="section-title reveal" style="transition-delay: 0.1s">What I <em>Do</em> Best</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-cell reveal" data-num="01">
+        <div class="skill-name">Frontend Dev</div>
+        <div class="skill-desc">React, Vue, TypeScript — crafting responsive, accessible interfaces with pixel precision.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 92%"></div></div>
+      </div>
+
+      <div class="skill-cell reveal" data-num="02" style="transition-delay: 0.05s">
+        <div class="skill-name">Backend Dev</div>
+        <div class="skill-desc">Node.js, Python, RESTful APIs, GraphQL — building robust server-side architectures.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 85%"></div></div>
+      </div>
+
+      <div class="skill-cell reveal" data-num="03" style="transition-delay: 0.1s">
+        <div class="skill-name">UI / UX Design</div>
+        <div class="skill-desc">Figma, design systems, user research — translating needs into intuitive experiences.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 88%"></div></div>
+      </div>
+
+      <div class="skill-cell reveal" data-num="04" style="transition-delay: 0.15s">
+        <div class="skill-name">Database</div>
+        <div class="skill-desc">PostgreSQL, MongoDB, Redis — data modeling and query optimization at scale.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 80%"></div></div>
+      </div>
+
+      <div class="skill-cell reveal" data-num="05" style="transition-delay: 0.2s">
+        <div class="skill-name">Cloud &amp; DevOps</div>
+        <div class="skill-desc">AWS, Docker, CI/CD pipelines — deploying and maintaining production systems reliably.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 75%"></div></div>
+      </div>
+
+      <div class="skill-cell reveal" data-num="06" style="transition-delay: 0.25s">
+        <div class="skill-name">Mobile Dev</div>
+        <div class="skill-desc">React Native, progressive web apps — building seamless cross-platform experiences.</div>
+        <div class="skill-bar"><div class="skill-bar-fill" style="width: 70%"></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       PROJECTS
+  ====================================================== -->
+  <section id="projects">
+    <p  class="section-label reveal">Selected Work</p>
+    <h2 class="section-title reveal" style="transition-delay: 0.1s">Recent <em>Projects</em></h2>
+
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <!--
+            Replace placeholder with a real image:
+            <img src="images/project-finova.jpg" alt="Finova Dashboard" class="project-img" />
+          -->
+          <div class="project-img-placeholder" style="background: #E8D5B0;">Dashboard UI</div>
+        </div>
+        <div class="project-num">Project — 01</div>
+        <div class="project-title">Finova Dashboard</div>
+        <p class="project-desc">
+          A real-time analytics dashboard for a fintech startup, featuring interactive charts,
+          live data feeds, and a dark-mode design system built in React + D3.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">React</span>
+          <span class="project-tag">D3.js</span>
+          <span class="project-tag">TypeScript</span>
+          <span class="project-tag">Node.js</span>
+        </div>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card reveal" style="transition-delay: 0.1s">
+        <div class="project-img-wrap">
+          <div class="project-img-placeholder" style="background: #D9C9A8;">E-Commerce</div>
+        </div>
+        <div class="project-num">Project — 02</div>
+        <div class="project-title">Artisan Market</div>
+        <p class="project-desc">
+          A full-stack e-commerce platform for independent artisans, including inventory management,
+          Stripe payments, and a custom CMS for sellers — built with Next.js and PostgreSQL.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Next.js</span>
+          <span class="project-tag">PostgreSQL</span>
+          <span class="project-tag">Stripe</span>
+        </div>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card reveal" style="transition-delay: 0.15s">
+        <div class="project-img-wrap">
+          <div class="project-img-placeholder" style="background: #c9b08a;">Mobile App</div>
+        </div>
+        <div class="project-num">Project — 03</div>
+        <div class="project-title">Routr — Fitness App</div>
+        <p class="project-desc">
+          A React Native fitness tracker with AI-generated workout plans, GPS route mapping,
+          and social sharing. Reached 10K+ downloads in the first month on the App Store.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">React Native</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">AWS</span>
+        </div>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card reveal" style="transition-delay: 0.2s">
+        <div class="project-img-wrap">
+          <div class="project-img-placeholder" style="background: #bea882;">SaaS Platform</div>
+        </div>
+        <div class="project-num">Project — 04</div>
+        <div class="project-title">NoteNest — SaaS</div>
+        <p class="project-desc">
+          A collaborative note-taking SaaS with real-time editing (WebSockets), rich text formatting,
+          team workspaces, and role-based access control. 500+ active teams.
+        </p>
+        <div class="project-tags">
+          <span class="project-tag">Vue.js</span>
+          <span class="project-tag">WebSockets</span>
+          <span class="project-tag">MongoDB</span>
+        </div>
+        <a href="#" class="project-link">View Project</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       RESUME
+  ====================================================== -->
+  <section id="resume">
+    <div class="reveal">
+      <p class="section-label">Resume</p>
+      <h2 class="section-title">Let's Work <em>Together</em></h2>
+    </div>
+
+    <div class="resume-right reveal">
+      <!-- Replace href with the path to your actual PDF -->
+      <a href="resume.pdf" class="resume-btn" download>Download CV</a>
+      <p class="resume-note">PDF · Updated March 2026</p>
+    </div>
+  </section>
+
+  <!-- ======================================================
+       CONTACT
+  ====================================================== -->
+  <section id="contact">
+
+    <div class="reveal">
+      <p class="section-label">Get In Touch</p>
+      <h2 class="section-title">Say <em>Hello</em></h2>
+      <p class="contact-intro">
+        
+      </p>
+    </div>
+
+    <div class="contact-items reveal" style="transition-delay: 0.15s">
+
+      <a href="#" class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">@gmail.com</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <a href="#" class="contact-item">
+        <div class="contact-icon">☎</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+91--</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <a href="#" class="contact-item" target="_blank" rel="noopener">
+        <div class="contact-icon">in</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">linkedin.com/in</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+      <a href="#" class="contact-item" target="_blank" rel="noopener">
+        <div class="contact-icon" style="font-size: 1rem;">GH</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">github.com</div>
+        </div>
+        <div class="contact-arrow">→</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer>
+    <p class="footer-copy">© 2026 Nirmal. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#projects">Work</a>
+      <a href="resume.pdf" download>Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
